@@ -3,12 +3,12 @@ const mysql = require("mysql");
 
 // prettier-ignore
 const noroffdb = mysql.createPool({
-  user:     process.env.NODE_ENV === 'production' ? process.env.MYSQL_USER     : 'root',
-  password: process.env.NODE_ENV === 'production' ? process.env.MYSQL_PASSWORD : '',
-  database: process.env.NODE_ENV === 'production' ? process.env.MYSQL_DATABASE : 'noroff',
-  host:     process.env.NODE_ENV === 'production' ? process.env.MYSQL_HOST     : 'localhost',
-  port:     process.env.NODE_ENV === 'production' ? process.env.MYSQL_PORT     : '3306'
-})
+  user:     process.env.NODE_ENV === "production" ? process.env.MYSQL_USER     : "root",
+  password: process.env.NODE_ENV === "production" ? process.env.MYSQL_PASSWORD : "",
+  database: process.env.NODE_ENV === "production" ? process.env.MYSQL_DATABASE : "noroff",
+  host:     process.env.NODE_ENV === "production" ? process.env.MYSQL_HOST     : "localhost",
+  port:     process.env.NODE_ENV === "production" ? process.env.MYSQL_PORT     : "3306"
+});
 
 const db = {};
 
@@ -46,10 +46,10 @@ db.deleteOne = id => {
 };
 
 db.createOne = ({ name, type, color, legs, gender }) => {
-  const query = `INSERT INTO animals (name, type, color, legs, gender) VALUES (?, ?, ?, ?, ?)`;
+  const query = "INSERT INTO animals (name, type, color, legs, gender) VALUES (?, ?, ?, ?, ?)";
 
   return new Promise((resolve, reject) => {
-    noroffdb.query(query, [name, type, color, legs, gender], (error, result) => {
+    noroffdb.query(query, [ name, type, color, legs, gender ], (error, result) => {
       if (error) {
         return reject(error);
       }
@@ -59,10 +59,10 @@ db.createOne = ({ name, type, color, legs, gender }) => {
 };
 
 db.updateOne = (id, { name, type, color, legs, gender }) => {
-  const query = `UPDATE animals SET name=?, type=?, color=?, legs=?, gender=? WHERE id = ?`;
+  const query = "UPDATE animals SET name=?, type=?, color=?, legs=?, gender=? WHERE id = ?";
 
   return new Promise((resolve, reject) => {
-    noroffdb.query(query, [name, type, color, legs, gender, id], (error, result) => {
+    noroffdb.query(query, [ name, type, color, legs, gender, id ], (error, result) => {
       if (error) {
         return reject(error);
       }

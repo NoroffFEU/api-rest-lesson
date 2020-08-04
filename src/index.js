@@ -10,7 +10,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 // Get all animals in database
-app.get("/animals", async (req, res, next) => {
+app.get("/animals", async (req, res) => {
   try {
     const result = await db.getAll();
     res.status(200).json(result);
@@ -22,7 +22,7 @@ app.get("/animals", async (req, res, next) => {
 });
 
 // Get one animal in database
-app.get("/animals/:id", async (req, res, next) => {
+app.get("/animals/:id", async (req, res) => {
   const { id } = req.params;
 
   try {
@@ -93,7 +93,7 @@ app.put("/animals/:id", async (req, res) => {
 });
 
 // Delete one animal in database
-app.delete("/animals/:id", async (req, res, next) => {
+app.delete("/animals/:id", async (req, res) => {
   const { id } = req.params;
 
   try {
