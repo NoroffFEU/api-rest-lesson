@@ -68,7 +68,7 @@ _Example body of a PUT request to /animals/1 - Changing type to cat._
 ```json
 {
     "name": "Molly",
-    "type": "cat"
+    "type": "cat",
     "color": "white",
     "legs": "4",
     "gender": "female"
