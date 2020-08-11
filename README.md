@@ -75,7 +75,7 @@ _Example body of a PUT request to /animals/1 - Changing type to cat._
 }
 ```
 ### `DELETE /animals/:id`  
-Making a DELETE request to this endpoint will delete the animal from the database. PUT requests require you to include all keys with their respective values, even if that value isn't being updated.  
+Making a DELETE request to this endpoint will delete the animal with that id from the database.
 
 _Example response of a DELETE request to /animals/3_
 ```json
